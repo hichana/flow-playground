@@ -12,13 +12,17 @@ type ExportButtonProps = {
 
 export const ExportButton = (props: ExportButtonProps) => {
   const { project } = useProject();
-  const { id, typeName } = props;
+  // const { id, typeName } = props;
+  // Milestone 2: use 'storage' param to force ExportButton to appear (ignoring ts error)
+  const { id, typeName, storage } = props; 
   const code = generateCode(project.id, id, typeName);
   const [isCopied, setCopied] = useClipboard(code, {
     successDuration: 1000,
   });
 
-  return project.id === 'LOCAL-project' ? null : (
+  // return project.id === 'LOCAL-project' ? null : (
+  // Milsetone 2: force ExportButton to appear for 0x01
+  return (project.id === 'LOCAL-project' && storage === "0x01") ? null : ( 
     <SidebarItemExport
       onClick={setCopied}
       title={'Copy snippet to clipboard'}

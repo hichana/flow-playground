@@ -34,7 +34,6 @@ const AccountList: React.FC = () => {
   const {
     project,
     active,
-    // updatedStorageAccts,
   } = useProject();
   const accountSelected = active.type === EntityType.Account
 

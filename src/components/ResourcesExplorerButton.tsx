@@ -18,10 +18,12 @@ export const ResourcesExplorerButton = (props: ResourcesExplorerButtonProps) => 
   const location = useLocation();
   const params = getParams(location.search);
   // const { type, id } = params;  
-  const { type, id, storage } = params;  // Milestone 2: pull 'storage' param for rendering only first user icon
+  // Milestone 2: pull 'storage' param for rendering only first user icon
+  const { type, id, storage } = params;  
 
   // return project.id === 'LOCAL-project' ? null : (
-  return project.id !== 'LOCAL-project' ? null : ( // Milestone 2: set all to render to demonstrate UI
+  // Milestone 2: set all to render to demonstrate UI
+  return project.id !== 'LOCAL-project' ? null : ( 
     <SidebarItemToggleResources
       onClick={() => {
         setSelectedResourceAccount(addr)
@@ -29,7 +31,8 @@ export const ResourcesExplorerButton = (props: ResourcesExplorerButtonProps) => 
       }}
       title={'Open the resources explorer'}
       // active={false}
-      active={storage === addr ? true : false} // Milestone 2: make only the first icon be in active state
+      // Milestone 2: make only the first icon be in active state
+      active={storage === addr ? true : false} 
     >
       <FaDatabase />
     </SidebarItemToggleResources>

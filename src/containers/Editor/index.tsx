@@ -25,6 +25,7 @@ const Playground: any = (props: any) => {
 
   const client = useApolloClient();
   const resolvedProjectId = correctUUID ? projectId : null
+  
   const {
     project
   } = useGetProject(client, resolvedProjectId, isActiveProject);
@@ -83,7 +84,7 @@ const Playground: any = (props: any) => {
                 type: EntityType.TransactionTemplate,
                 index: 0,
               });
-              navigate(`/${project.id}?type=tx&id=${project.transactionTemplates[0].id}`)
+              navigate(`/${projectId}?type=tx&id=${project.transactionTemplates[0].id}`)
             }
             break;
           case 'script':
@@ -100,7 +101,7 @@ const Playground: any = (props: any) => {
                 type: EntityType.ScriptTemplate,
                 index: 0,
               });
-              navigate(`/${project.id}?type=script&id=${project.scriptTemplates[0].id}`)
+              navigate(`/${projectId}?type=script&id=${project.scriptTemplates[0].id}`)
             }
             break;
           case 'account':
@@ -119,7 +120,7 @@ const Playground: any = (props: any) => {
                 type: EntityType.Account,
                 index: 0,
               });
-              navigate(`/${project.id}?type=account&id=${project.accounts[0].id}`)
+              navigate(`/${projectId}?type=account&id=${project.accounts[0].id}`)
             }
             break;
         }
